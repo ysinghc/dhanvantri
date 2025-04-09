@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Dhanvantri Healthcare Platform</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h1>Dhanvantri</h1>
+                </div>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="../../assets/img/user.png" alt="User Avatar">
+                </div>
+                <div class="user-info">
+                    <h3 class="user-name">John Doe</h3>
+                    <p class="user-id">Health ID: ABCD1234</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#" data-page="dashboard">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="appointments">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Appointments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="medical-records">
+                            <i class="fas fa-file-medical"></i>
+                            <span>Medical Records</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="prescriptions">
+                            <i class="fas fa-prescription"></i>
+                            <span>Prescriptions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="lab-reports">
+                            <i class="fas fa-flask"></i>
+                            <span>Lab Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="emergency-card">
+                            <i class="fas fa-medkit"></i>
+                            <span>Emergency Card</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="insurance">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Insurance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <h2 class="page-title">Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="help-btn">
+                            <i class="fas fa-question-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Overview -->
+            <div class="content-wrapper page-active" id="dashboard">
+                <div class="welcome-banner">
+                    <div class="welcome-message">
+                        <h3>Welcome back, John!</h3>
+                        <p>Here's an overview of your health information and upcoming activities.</p>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="btn btn-primary" onclick="openModal('appointmentModal')">
+                            <i class="fas fa-plus"></i> New Appointment
+                        </button>
+                        <button class="btn btn-outline" id="downloadRecordsBtn">
+                            <i class="fas fa-download"></i> Download Records
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-primary">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Upcoming Appointments</h4>
+                            <p class="stat-value">2</p>
+                            <p class="stat-detail">Next: Dr. Smith on May 15</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-success">
+                            <i class="fas fa-prescription"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Active Medications</h4>
+                            <p class="stat-value">3</p>
+                            <p class="stat-detail">Last updated: 1 week ago</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-warning">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Recent Lab Tests</h4>
+                            <p class="stat-value">1</p>
+                            <p class="stat-detail">Blood work: Apr 10, 2023</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-info">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Medical Records</h4>
+                            <p class="stat-value">12</p>
+                            <p class="stat-detail">Last added: 2 weeks ago</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-sections">
+                    <div class="section-card upcoming-appointments">
+                        <div class="section-header">
+                            <h3>Upcoming Appointments</h3>
+                            <a href="#" class="view-all" data-page="appointments">View All</a>
+                        </div>
+                        <div class="appointment-list">
+                            <div class="appointment-item">
+                                <div class="appointment-date">
+                                    <div class="date-display">
+                                        <span class="month">May</span>
+                                        <span class="day">15</span>
+                                    </div>
+                                    <span class="time">9:30 AM</span>
+                                </div>
+                                <div class="appointment-details">
+                                    <h4>Dr. Robert Smith</h4>
+                                    <p>Cardiology - Annual Checkup</p>
+                                    <p class="location"><i class="fas fa-map-marker-alt"></i> City Hospital, Room 305</p>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="btn btn-sm btn-outline" onclick="handleAppointment('reschedule', 'apt-001')">Reschedule</button>
+                                    <button class="btn btn-sm btn-outline btn-danger" onclick="handleAppointment('cancel', 'apt-001')">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="appointment-item">
+                                <div class="appointment-date">
+                                    <div class="date-display">
+                                        <span class="month">May</span>
+                                        <span class="day">28</span>
+                                    </div>
+                                    <span class="time">2:15 PM</span>
+                                </div>
+                                <div class="appointment-details">
+                                    <h4>Dr. Emily Johnson</h4>
+                                    <p>Dentistry - Regular Cleaning</p>
+                                    <p class="location"><i class="fas fa-map-marker-alt"></i> Smile Dental Clinic</p>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="btn btn-sm btn-outline" onclick="handleAppointment('reschedule', 'apt-002')">Reschedule</button>
+                                    <button class="btn btn-sm btn-outline btn-danger" onclick="handleAppointment('cancel', 'apt-002')">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card current-medications">
+                        <div class="section-header">
+                            <h3>Current Medications</h3>
+                            <a href="#" class="view-all" data-page="prescriptions">View All</a>
+                        </div>
+                        <div class="medication-list">
+                            <div class="medication-item">
+                                <div class="medication-icon">
+                                    <i class="fas fa-pills"></i>
+                                </div>
+                                <div class="medication-details">
+                                    <h4>Atorvastatin 20mg</h4>
+                                    <p>1 tablet once daily at night</p>
+                                    <div class="medication-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Started: Jan 15, 2023</span>
+                                        <span><i class="fas fa-user-md"></i> Dr. Robert Smith</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="medication-item">
+                                <div class="medication-icon">
+                                    <i class="fas fa-capsules"></i>
+                                </div>
+                                <div class="medication-details">
+                                    <h4>Metformin 500mg</h4>
+                                    <p>1 tablet twice daily with meals</p>
+                                    <div class="medication-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Started: Feb 3, 2023</span>
+                                        <span><i class="fas fa-user-md"></i> Dr. Sarah Williams</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Emergency Card Section -->
+            <div class="content-wrapper" id="emergency-card">
+                <div class="section-intro">
+                    <h3>Emergency Medical Card</h3>
+                    <p>Your emergency medical card provides quick access to critical health information in case of emergencies.</p>
+                </div>
+                
+                <div class="emergency-card-container">
+                    <div class="emergency-card">
+                        <div class="card-header">
+                            <h4>Dhanvantri Emergency Medical Card</h4>
+                            <div id="cardStatus" class="status active">Active</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="patient-info">
+                                <div class="info-group">
+                                    <label>Name:</label>
+                                    <span id="patientName">John Doe</span>
+                                </div>
+                                <div class="info-group">
+                                    <label>Health ID:</label>
+                                    <span id="healthId">ABCD1234</span>
+                                </div>
+                                <div class="info-group">
+                                    <label>Blood Group:</label>
+                                    <span id="bloodGroup">O+</span>
+                                </div>
+                                <div class="info-group">
+                                    <label>Emergency Contact:</label>
+                                    <span id="emergencyContact">+1 (555) 123-4567</span>
+                                </div>
+                            </div>
+                            <div class="qr-code-container">
+                                <div id="qrCode" class="qr-code">
+                                    <!-- QR code will be inserted here -->
+                                </div>
+                                <p class="expires">Expires: <span id="expiryDate">June 15, 2023</span></p>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button id="regenerateCardBtn" class="btn btn-primary">
+                                <i class="fas fa-sync-alt"></i> Regenerate Card
+                            </button>
+                            <button id="downloadCardBtn" class="btn btn-outline">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-settings">
+                        <h4>Card Settings</h4>
+                        <div class="form-group">
+                            <label for="accessLevelSelect">Information Access Level</label>
+                            <select id="accessLevelSelect">
+                                <option value="basic">Basic (Blood type, allergies, conditions)</option>
+                                <option value="full">Full (Basic + medications, contact details)</option>
+                            </select>
+                            <p class="form-help">Choose how much information to share in emergencies</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="switch-label">Card Status</label>
+                            <label class="switch">
+                                <input type="checkbox" id="cardActiveToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <span id="cardActiveStatus">Active</span>
+                            <p class="form-help">Disable if you don't want your card to be accessible</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="access-logs-section">
+                    <div class="section-header">
+                        <h3>Access Logs</h3>
+                        <p>See when your emergency information was accessed</p>
+                    </div>
+                    <div class="logs-container">
+                        <table class="access-logs-table">
+                            <thead>
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Accessed By</th>
+                                    <th>Location/IP</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody id="accessLogsBody">
+                                <!-- Access logs will be inserted here -->
+                                <tr>
+                                    <td colspan="4" class="no-records">No records found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modals -->
+            <div class="modal" id="appointmentModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Schedule New Appointment</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="appointmentForm">
+                            <div class="form-group">
+                                <label for="doctorSelect">Doctor</label>
+                                <select id="doctorSelect" required>
+                                    <option value="">Select Doctor</option>
+                                    <option value="1">Dr. Robert Smith (Cardiology)</option>
+                                    <option value="2">Dr. Sarah Johnson (Dermatology)</option>
+                                    <option value="3">Dr. Priya Sharma (Gynecology)</option>
+                                    <option value="4">Dr. John Davis (Neurology)</option>
+                                    <option value="5">Dr. Michael Lee (Orthopedics)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentDate">Date</label>
+                                <input type="date" id="appointmentDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Time</label>
+                                <select id="appointmentTime" required>
+                                    <option value="">Select Time</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="09:30">9:30 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="15:30">3:30 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentReason">Reason for Visit</label>
+                                <textarea id="appointmentReason" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline btn-cancel">Cancel</button>
+                        <button class="btn btn-primary" id="saveAppointmentBtn">Schedule Appointment</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 

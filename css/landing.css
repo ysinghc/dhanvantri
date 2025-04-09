@@ -1,0 +1,345 @@
+/* Hero Section */
+.hero {
+    padding: var(--spacing-xxl) 0;
+    background-color: #f0f7ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-dark);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-medium);
+    max-width: 600px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Features Section */
+.features {
+    background-color: var(--background-white);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.feature-card {
+    background-color: var(--background-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-card h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.feature-card p {
+    color: var(--text-medium);
+    margin-bottom: 0;
+}
+
+/* User Portals Section */
+.user-portals {
+    background-color: var(--background-light);
+    position: relative;
+}
+
+.portal-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+}
+
+.portal-card {
+    flex: 1;
+    background-color: var(--background-white);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.portal-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.portal-card h3, .portal-card p {
+    padding: 0 var(--spacing-md);
+}
+
+.portal-card h3 {
+    margin-top: var(--spacing-md);
+    color: var(--primary-dark);
+}
+
+.portal-card p {
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-lg);
+}
+
+.portal-card .btn {
+    margin: 0 var(--spacing-md) var(--spacing-md);
+}
+
+/* Benefits Section */
+.benefits {
+    background-color: var(--background-white);
+}
+
+.benefits .container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.benefits-content {
+    flex: 1;
+}
+
+.benefits-list {
+    list-style-type: none;
+}
+
+.benefits-list li {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.benefits-list li i {
+    color: var(--success-color);
+    margin-right: var(--spacing-sm);
+    font-size: 1.25rem;
+}
+
+.benefits-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.benefits-image img {
+    max-width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Insurance Section */
+.insurance {
+    background-color: #f0f9f6;
+    text-align: center;
+}
+
+.insurance-features {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.insurance-feature {
+    flex: 1;
+    padding: var(--spacing-lg);
+    background-color: var(--background-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insurance-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.insurance-feature i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.insurance-feature h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.insurance-feature p {
+    color: var(--text-medium);
+    margin-bottom: 0;
+}
+
+/* About Section */
+.about {
+    background-color: var(--background-white);
+    text-align: center;
+}
+
+.about-description {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    font-size: 1.1rem;
+    color: var(--text-medium);
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.stat-item {
+    flex: 1;
+    padding: var(--spacing-lg);
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius-md);
+    color: var(--text-light);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-light);
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+    
+    .hero-image {
+        margin-top: var(--spacing-lg);
+        justify-content: center;
+    }
+    
+    .portal-cards {
+        flex-direction: column;
+    }
+    
+    .benefits .container {
+        flex-direction: column;
+    }
+    
+    .benefits-content {
+        text-align: center;
+    }
+    
+    .benefits-list li {
+        justify-content: center;
+    }
+    
+    .benefits-image {
+        margin-top: var(--spacing-lg);
+        justify-content: center;
+    }
+    
+    .insurance-features {
+        flex-direction: column;
+    }
+    
+    .stats-container {
+        flex-wrap: wrap;
+    }
+    
+    .stat-item {
+        flex-basis: calc(50% - var(--spacing-md));
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        flex-basis: 100%;
+    }
+} 

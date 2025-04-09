@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration | Dhanvantri Healthcare</title>
+    <link rel="stylesheet" href="registration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="registration-container">
+        <div class="logo-section">
+            <div class="logo">
+                <h1>Dhanvantri</h1>
+                <span class="tagline">Healthcare Platform</span>
+            </div>
+        </div>
+        
+        <div class="registration-section">
+            <div class="registration-header">
+                <h2>Doctor Registration</h2>
+                <p>Join Dhanvantri Healthcare - Create your professional doctor account</p>
+                <div class="registration-progress">
+                    <div class="progress-step active" data-step="1">1</div>
+                    <div class="progress-step" data-step="2">2</div>
+                    <div class="progress-step" data-step="3">3</div>
+                    <div class="progress-step" data-step="4">4</div>
+                </div>
+            </div>
+            
+            <form id="doctorRegistrationForm">
+                <!-- Step 1: Account Information -->
+                <div class="form-step active" data-step="1">
+                    <h3>Account Information</h3>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user-md"></i>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                            <i class="fas fa-eye toggle-password"></i>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                        </div>
+                        <p class="password-hint">Must be at least 8 characters with letters, numbers, and special characters</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="next-step" data-next="2">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Personal Information -->
+                <div class="form-step" data-step="2">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+                    
+                    <h4>Address</h4>
+                    <div class="form-group">
+                        <label for="street">Street Address</label>
+                        <input type="text" id="street" name="street" placeholder="Enter your street address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" placeholder="City" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" placeholder="State" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pincode">PIN Code</label>
+                            <input type="text" id="pincode" name="pincode" placeholder="PIN Code" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" value="India" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="prev-step" data-prev="1">Previous</button>
+                        <button type="button" class="next-step" data-next="3">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Professional Information -->
+                <div class="form-step" data-step="3">
+                    <h3>Professional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="medicalRegistrationNumber">Medical Registration Number</label>
+                        <input type="text" id="medicalRegistrationNumber" name="medicalRegistrationNumber" placeholder="Enter your MCI/State Medical Council registration number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="medicalCouncil">Medical Council</label>
+                        <select id="medicalCouncil" name="medicalCouncil" required>
+                            <option value="">Select registration council</option>
+                            <option value="MCI">Medical Council of India (MCI)</option>
+                            <option value="Andhra">Andhra Pradesh Medical Council</option>
+                            <option value="Assam">Assam Medical Council</option>
+                            <option value="Bihar">Bihar Medical Council</option>
+                            <option value="Delhi">Delhi Medical Council</option>
+                            <option value="Gujarat">Gujarat Medical Council</option>
+                            <option value="Karnataka">Karnataka Medical Council</option>
+                            <option value="Kerala">Kerala Medical Council</option>
+                            <option value="Maharashtra">Maharashtra Medical Council</option>
+                            <option value="TamilNadu">Tamil Nadu Medical Council</option>
+                            <option value="UP">Uttar Pradesh Medical Council</option>
+                            <option value="WestBengal">West Bengal Medical Council</option>
+                            <option value="other">Other State Medical Council</option>
+                        </select>
+                    </div>
+                    
+                    <div id="otherCouncilField" class="hidden">
+                        <div class="form-group">
+                            <label for="otherCouncil">Specify Medical Council</label>
+                            <input type="text" id="otherCouncil" name="otherCouncil" placeholder="Enter medical council name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialization">Primary Specialization</label>
+                        <select id="specialization" name="specialization" required>
+                            <option value="">Select specialization</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Endocrinology">Endocrinology</option>
+                            <option value="Gastroenterology">Gastroenterology</option>
+                            <option value="General Medicine">General Medicine</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
+                            <option value="Oncology">Oncology</option>
+                            <option value="Ophthalmology">Ophthalmology</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Psychiatry">Psychiatry</option>
+                            <option value="Pulmonology">Pulmonology</option>
+                            <option value="Radiology">Radiology</option>
+                            <option value="Urology">Urology</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div id="otherSpecializationField" class="hidden">
+                        <div class="form-group">
+                            <label for="otherSpecialization">Specify Specialization</label>
+                            <input type="text" id="otherSpecialization" name="otherSpecialization" placeholder="Enter specialization">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="medicalQualifications">Medical Qualifications</label>
+                        <textarea id="medicalQualifications" name="medicalQualifications" placeholder="Enter your medical qualifications (comma separated, e.g., MBBS, MD Internal Medicine, DNB)" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="yearsOfExperience">Years of Experience</label>
+                        <input type="number" id="yearsOfExperience" name="yearsOfExperience" min="0" placeholder="Enter years of experience" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="consultationFee">Consultation Fee (₹)</label>
+                        <input type="number" id="consultationFee" name="consultationFee" min="0" placeholder="Enter your consultation fee" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hospitalAffiliation">I am affiliated with a hospital</label>
+                        <input type="checkbox" id="hospitalAffiliation" name="hospitalAffiliation">
+                    </div>
+                    
+                    <div id="hospitalDetailsField" class="hidden">
+                        <div class="form-group">
+                            <label for="hospitalId">Hospital ID</label>
+                            <input type="text" id="hospitalId" name="hospitalId" placeholder="Enter hospital ID (if known)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="hospitalName">Hospital Name</label>
+                            <input type="text" id="hospitalName" name="hospitalName" placeholder="Enter hospital name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="prev-step" data-prev="2">Previous</button>
+                        <button type="button" class="next-step" data-next="4">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Terms & Submit -->
+                <div class="form-step" data-step="4">
+                    <h3>Terms & Submit</h3>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="termsConsent" name="termsConsent" required>
+                        <label for="termsConsent">I agree to the <a href="#" class="terms-link">Terms and Conditions</a></label>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="privacyConsent" name="privacyConsent" required>
+                        <label for="privacyConsent">I agree to the <a href="#" class="privacy-link">Privacy Policy</a></label>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="dataConsent" name="dataConsent" required>
+                        <label for="dataConsent">I consent to the processing of my personal and professional data</label>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="credentialsConsent" name="credentialsConsent" required>
+                        <label for="credentialsConsent">I certify that all credentials provided are accurate and valid</label>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="prev-step" data-prev="3">Previous</button>
+                        <button type="submit" class="submit-btn">Create Account</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/doctor-registration.js"></script>
+</body>
+</html> 

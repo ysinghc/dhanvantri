@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - Dhanvantri Healthcare Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h1>Dhanvantri</h1>
+                </div>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="../assets/doctor-avatar.jpg" alt="Doctor">
+                </div>
+                <div class="user-info">
+                    <h3>Dr. Rajesh Sharma</h3>
+                    <p>Cardiologist</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#" class="tab-link" data-target="dashboard-page">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="tab-link" data-target="patients-page">
+                            <i class="fas fa-user-injured"></i>
+                            <span>My Patients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="tab-link" data-target="appointments-page">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Appointments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="tab-link" data-target="consultations-page">
+                            <i class="fas fa-stethoscope"></i>
+                            <span>Consultations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="tab-link" data-target="prescriptions-page">
+                            <i class="fas fa-prescription"></i>
+                            <span>Prescriptions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="tab-link" data-target="schedule-page">
+                            <i class="fas fa-clock"></i>
+                            <span>Schedule</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="tab-link" data-target="settings-page">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn" onclick="logoutUser()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 class="page-title">Dashboard</h1>
+                
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="help-btn">
+                            <i class="fas fa-question-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="content-wrapper page-active">
+                <div class="welcome-banner">
+                    <div class="welcome-message">
+                        <h3>Welcome back, Dr. Rajesh Sharma</h3>
+                        <p>You have 8 appointments and 3 consultations today</p>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="btn btn-primary" onclick="openModal('newAppointmentModal')">
+                            <i class="fas fa-plus"></i> New Appointment
+                        </button>
+                        <button class="btn btn-outline" onclick="openModal('newConsultationModal')">
+                            <i class="fas fa-video"></i> Start Consultation
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-primary">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Today's Appointments</h4>
+                            <div class="stat-value">8</div>
+                            <p class="stat-detail">2 pending confirmations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon bg-success">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Total Patients</h4>
+                            <div class="stat-value">428</div>
+                            <p class="stat-detail">+12 this month</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon bg-warning">
+                            <i class="fas fa-prescription"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Prescriptions</h4>
+                            <div class="stat-value">32</div>
+                            <p class="stat-detail">This week</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-sections">
+                    <!-- Today's Schedule -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3>Today's Schedule</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        
+                        <div class="appointment-list">
+                            <div class="appointment-item" data-id="1">
+                                <div class="appointment-time">
+                                    <span class="time-display">09:30 AM</span>
+                                    <span class="appointment-type in-person">In-Person</span>
+                                </div>
+                                <div class="appointment-details">
+                                    <h4>Aarav Patel</h4>
+                                    <p>Chest pain and discomfort</p>
+                                    <div class="patient-meta">
+                                        <span><i class="fas fa-mobile-alt"></i> +91 98765 43210</span>
+                                        <span><i class="fas fa-history"></i> Follow-up</span>
+                                    </div>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="startConsultation(1)">
+                                        Start
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="rescheduleAppointment(1)">
+                                        Reschedule
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="appointment-item" data-id="2">
+                                <div class="appointment-time">
+                                    <span class="time-display">10:45 AM</span>
+                                    <span class="appointment-type virtual">Virtual</span>
+                                </div>
+                                <div class="appointment-details">
+                                    <h4>Priya Singh</h4>
+                                    <p>Heart palpitations and dizziness</p>
+                                    <div class="patient-meta">
+                                        <span><i class="fas fa-mobile-alt"></i> +91 87654 32109</span>
+                                        <span><i class="fas fa-history"></i> New Patient</span>
+                                    </div>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="startConsultation(2)">
+                                        Start
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="rescheduleAppointment(2)">
+                                        Reschedule
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="appointment-item" data-id="3">
+                                <div class="appointment-time">
+                                    <span class="time-display">01:15 PM</span>
+                                    <span class="appointment-type in-person">In-Person</span>
+                                </div>
+                                <div class="appointment-details">
+                                    <h4>Vikram Malhotra</h4>
+                                    <p>Hypertension follow-up</p>
+                                    <div class="patient-meta">
+                                        <span><i class="fas fa-mobile-alt"></i> +91 76543 21098</span>
+                                        <span><i class="fas fa-history"></i> Regular</span>
+                                    </div>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="startConsultation(3)">
+                                        Start
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="rescheduleAppointment(3)">
+                                        Reschedule
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Patients -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3>Recent Patients</h3>
+                            <div class="header-controls">
+                                <select class="filter-select">
+                                    <option value="all">All Patients</option>
+                                    <option value="new">New Patients</option>
+                                    <option value="follow-up">Follow-up</option>
+                                </select>
+                                <a href="#" class="view-all">View All</a>
+                            </div>
+                        </div>
+                        
+                        <div class="patients-list">
+                            <div class="patient-item">
+                                <div class="patient-avatar">
+                                    <img src="../assets/patient1.jpg" alt="Patient">
+                                </div>
+                                <div class="patient-details">
+                                    <h4>Aarav Patel</h4>
+                                    <p>42 years, Male</p>
+                                    <div class="patient-condition">
+                                        <span class="condition-badge">Hypertension</span>
+                                        <span class="condition-badge">Diabetes</span>
+                                    </div>
+                                </div>
+                                <div class="patient-actions">
+                                    <button class="btn-icon" onclick="viewPatientDetails(101)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="writeNewPrescription(101)">
+                                        <i class="fas fa-prescription"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="scheduleFollowUp(101)">
+                                        <i class="fas fa-calendar-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="patient-item">
+                                <div class="patient-avatar">
+                                    <img src="../assets/patient2.jpg" alt="Patient">
+                                </div>
+                                <div class="patient-details">
+                                    <h4>Priya Singh</h4>
+                                    <p>35 years, Female</p>
+                                    <div class="patient-condition">
+                                        <span class="condition-badge">Arrhythmia</span>
+                                    </div>
+                                </div>
+                                <div class="patient-actions">
+                                    <button class="btn-icon" onclick="viewPatientDetails(102)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="writeNewPrescription(102)">
+                                        <i class="fas fa-prescription"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="scheduleFollowUp(102)">
+                                        <i class="fas fa-calendar-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="patient-item">
+                                <div class="patient-avatar">
+                                    <img src="../assets/patient3.jpg" alt="Patient">
+                                </div>
+                                <div class="patient-details">
+                                    <h4>Vikram Malhotra</h4>
+                                    <p>58 years, Male</p>
+                                    <div class="patient-condition">
+                                        <span class="condition-badge">Coronary Artery Disease</span>
+                                        <span class="condition-badge">Hypertension</span>
+                                    </div>
+                                </div>
+                                <div class="patient-actions">
+                                    <button class="btn-icon" onclick="viewPatientDetails(103)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="writeNewPrescription(103)">
+                                        <i class="fas fa-prescription"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="scheduleFollowUp(103)">
+                                        <i class="fas fa-calendar-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Pages (Placeholder for now) -->
+            <div id="patients-page" class="content-wrapper">
+                <h2 class="section-title">My Patients</h2>
+                <p class="placeholder-text">Patient management page content will appear here.</p>
+            </div>
+            
+            <div id="appointments-page" class="content-wrapper">
+                <h2 class="section-title">Appointments</h2>
+                <p class="placeholder-text">Appointment management page content will appear here.</p>
+            </div>
+            
+            <div id="consultations-page" class="content-wrapper">
+                <h2 class="section-title">Consultations</h2>
+                <p class="placeholder-text">Consultation records and history will appear here.</p>
+            </div>
+            
+            <div id="prescriptions-page" class="content-wrapper">
+                <h2 class="section-title">Prescriptions</h2>
+                <p class="placeholder-text">Prescription management page content will appear here.</p>
+            </div>
+            
+            <div id="schedule-page" class="content-wrapper">
+                <h2 class="section-title">My Schedule</h2>
+                <p class="placeholder-text">Schedule management page content will appear here.</p>
+            </div>
+            
+            <div id="settings-page" class="content-wrapper">
+                <h2 class="section-title">Settings</h2>
+                <p class="placeholder-text">Profile and account settings will appear here.</p>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="content-footer">
+                <p>&copy; 2023 Dhanvantri Healthcare Platform. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+    
+    <!-- Modal: New Appointment -->
+    <div id="newAppointmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Schedule New Appointment</h3>
+                <button class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="patientSearch">Patient</label>
+                        <div class="search-select">
+                            <input type="text" id="patientSearch" placeholder="Search patient by name or ID">
+                            <div class="search-results" id="patientSearchResults"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="appointmentDate">Date</label>
+                            <input type="date" id="appointmentDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentTime">Time</label>
+                            <input type="time" id="appointmentTime" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentType">Appointment Type</label>
+                        <select id="appointmentType" required>
+                            <option value="">Select type</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="virtual">Virtual</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentReason">Reason for Appointment</label>
+                        <textarea id="appointmentReason" rows="3" placeholder="Describe the reason for appointment"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentDuration">Duration</label>
+                        <select id="appointmentDuration">
+                            <option value="15">15 minutes</option>
+                            <option value="30" selected>30 minutes</option>
+                            <option value="45">45 minutes</option>
+                            <option value="60">60 minutes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="sendReminder">
+                            Send reminder to patient
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel">Cancel</button>
+                <button class="btn btn-primary" id="saveAppointmentBtn">Schedule Appointment</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal: New Consultation -->
+    <div id="newConsultationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Start New Consultation</h3>
+                <button class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="scheduledTab">Scheduled</button>
+                    <button class="tab-button" data-tab="immediateTab">Immediate</button>
+                </div>
+                
+                <div class="tab-content" id="scheduledTab">
+                    <div class="scheduled-consultations">
+                        <div class="consultation-item selectable" data-id="1001">
+                            <div class="patient-info">
+                                <div class="patient-avatar">
+                                    <img src="../assets/patient1.jpg" alt="Patient">
+                                </div>
+                                <div>
+                                    <h4>Aarav Patel</h4>
+                                    <p>09:30 AM - Chest pain and discomfort</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Start</button>
+                        </div>
+                        
+                        <div class="consultation-item selectable" data-id="1002">
+                            <div class="patient-info">
+                                <div class="patient-avatar">
+                                    <img src="../assets/patient2.jpg" alt="Patient">
+                                </div>
+                                <div>
+                                    <h4>Priya Singh</h4>
+                                    <p>10:45 AM - Heart palpitations and dizziness</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Start</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content hidden" id="immediateTab">
+                    <form id="immediateConsultationForm">
+                        <div class="form-group">
+                            <label for="consultPatientSearch">Patient</label>
+                            <div class="search-select">
+                                <input type="text" id="consultPatientSearch" placeholder="Search patient by name or ID">
+                                <div class="search-results" id="consultPatientSearchResults"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="consultationType">Consultation Type</label>
+                            <select id="consultationType" required>
+                                <option value="video">Video Call</option>
+                                <option value="audio">Audio Call</option>
+                                <option value="chat">Chat</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="consultationNotes">Notes</label>
+                            <textarea id="consultationNotes" rows="3" placeholder="Add any preliminary notes"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel">Cancel</button>
+                <button class="btn btn-primary" id="startConsultationBtn">Start Consultation</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
